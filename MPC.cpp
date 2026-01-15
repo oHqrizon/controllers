@@ -99,7 +99,7 @@ public:
     }
 
     static std::tuple<Eigen::VectorXd, std::vector<double>, std::vector<std::pair<double,double>>>
-    buildReference(const utfr_msgs::msg::ParametricSpline& spline, int N, int NX, double v_x){
+    buildReference(const spline_msgs::msg::ParametricSpline& spline, int N, int NX, double v_x){
 
         std::vector<double> x_params = spline.x_params;
         std::vector<double> y_params = spline.y_params;
