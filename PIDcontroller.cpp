@@ -30,17 +30,17 @@ class PIDController {
 
         prevError = error; // Kd
         error = v_ref - v_curr; // Kp 
-        totalError += error; // Ki
+        totalError += error * dt; // Ki
 
         double proportional = kp * error;
-        double integral = ki * totalError * dt; // Discrete-time approximation
+        double integral = ki * totalError; // Discrete-time approximation
         double derivative = kd * (error - prevError) / dt;
 
         double u = proportional + integral + derivative;
 
         // Anti wind-up (if saturated, don't include any more errors)
         if (u < 0.0 || u > 1.0){
-          totalError-=error;
+          totalError-=error * dt;
         }
 
         u = clamp(u, 0.0, 1.0);
