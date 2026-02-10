@@ -149,12 +149,12 @@ void RaceCarModelPlugin::updateState(const double dt) {
 
   
   // ------------------ Parameters ------------------
-  static double Kp_wheel = 500.0;       // wheel PI gain
+  static double Kp_wheel = 500.0;
   static double Ki_wheel = 50.0;
   static double Kv_wheel = 0.5;
 
-  static double Kp_steer = 888.0;       // steering hinge PID (very nessecary 888 for goodluck)
-  static double Kv_steer = 50.0;
+  static double Kp_steer = 888.0;
+  static double Kv_steer = 1.0;
 
   static double tau_max = 2000.0;       // max torque per wheel [Nm]
   static double tau_ramp_rate = 5000.0; // ramp-in
